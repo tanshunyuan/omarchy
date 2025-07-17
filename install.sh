@@ -1,8 +1,21 @@
-# Exit immediately if a command exits with a non-zero status
-set -e
+#!/bin/bash
 
-# Give people a chance to retry running the installation
-trap 'echo "Omarchy installation failed! You can retry by running: source ~/.local/share/omarchy/install.sh"' ERR
+handle_error() {
+    local exit_code=$?
+    local line_number=$1
+    
+    echo ""
+    echo "❌ ERROR: Omarchy installation failed at line $line_number (exit code: $exit_code)"
+    echo "📁 You can retry by running: source ~/.local/share/omarchy/install.sh"
+    echo ""
+    
+    # Don't exit the shell, just return from the script
+    return $exit_code
+}
+
+# Set up error handling without exiting the terminal
+set -E  # Enable ERR trap inheritance
+trap 'handle_error $LINENO' ERR
 
 # Install everything
 for f in ~/.local/share/omarchy/install/*.sh; do
