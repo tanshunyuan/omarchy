@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Update mirror list first
 handle_error() {
     local exit_code=$?
     local line_number=$1

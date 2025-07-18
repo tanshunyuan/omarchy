@@ -23,6 +23,8 @@ pkgs=(
   evince               # document viewer
   imv                  # image viewer
   firefox-developer-edition             # web browser
-  zen-browser
+  zen-browser-bin
+  slack-desktop
+  telegram-desktop
 )
 yay -S --noconfirm --needed "${pkgs[@]}"

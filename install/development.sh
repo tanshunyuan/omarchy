@@ -6,15 +6,14 @@
 #   lazygit lazydocker-bin
 
 pkgs=(
-  # cargo                # rust package manager
   clang                # C/C++ compiler
   llvm                 # compiler infrastructure
   mise                 # runtime version manager
   imagemagick          # image manipulation
-  # mariadb-libs         # mariadb client libraries
-  # postgresql-libs      # postgresql client libraries
   github-cli           # github command line
   lazygit              # git terminal UI
   lazydocker-bin       # docker terminal UI
+  zed
+  vscodium
 )
 yay -S --noconfirm --needed "${pkgs[@]}"
